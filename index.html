@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><3</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="present-box" id="presentBox">
+            <img src="box.svg" alt="Mystery Box" id="boxImage">
+        </div>
+        <div class="flower" id="flower">
+            <img src="flower.svg" alt="Flower">
+        </div>
+    </div>
+
+    <audio id="surpriseSound" src="On The Road Again.mp3"></audio>
+
+    <script>
+        document.getElementById('presentBox').addEventListener('click', function() {
+            document.getElementById('boxImage').classList.add('fade-out'); // Start box fade-out
+            document.getElementById('flower').classList.add('fade-in-bounce'); // Start flower fade-in with bounce
+
+            document.getElementById('surpriseSound').play();
+        });
+    </script>
+</body>
+</html>

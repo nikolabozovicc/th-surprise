@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fdf5e6;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+}
+
+.present-box {
+    position: absolute;
+    z-index: 2; /* Ensures the box is on top and clickable */
+}
+
+.present-box img {
+    width: 200px;
+    transition: transform 0.3s ease, opacity 0.5s ease; /* Smooth scaling and fade-out */
+}
+
+.present-box img:hover {
+    transform: scale(1.1); /* Enlarge box on hover */
+}
+
+/* Flower initially hidden, centered */
+.flower {
+    position: absolute;
+    opacity: 0; /* Hidden initially */
+    transform: scale(0.8); /* Start slightly smaller for bounce effect */
+    z-index: 1; /* Behind the box initially */
+}
+
+.flower img {
+    width: 200px;
+}
+
+/* Fade-out effect for box */
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+/* Fade-in with bounce effect for flower, bringing it forward */
+.fade-in-bounce {
+    opacity: 1;
+    z-index: 3; /* Bring flower in front of the box */
+    animation: fadeInBounce 0.8s ease-out forwards;
+}
+
+@keyframes fadeInBounce {
+    0% {
+        opacity: 0;
+        transform: scale(0.7); /* Start smaller */
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2); /* Grow slightly for bounce */
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1); /* Settle at normal size */
+    }
+}
